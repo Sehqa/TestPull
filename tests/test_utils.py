@@ -30,13 +30,14 @@ def test_logger(filename, url, level):
     soft_assert(Utils._logger(filename, url, level))
 
 
-@pytest.mark.parametrize('request', ["SELECT * FROM users;"])
-def test_sqldict(request):
+@pytest.mark.parametrize('request_for_db', ["SELECT * FROM users;"])
+def test_sqldict(request_for_db):
     Databas=Db()
-    assert (Databas.dictfrombd(request))
+    assert (Databas.dictfrombd(request_for_db))
 
 
-@pytest.mark.parametrize('request', ['ssssss'])
+@pytest.mark.parametrize('request_for_db', ['ssssss'])
 # negative
-def test2_sqldict(request):
-    soft_assert(Db._dictfrombd(request))
+def test2_sqldict(request_for_db):
+    Databas = Db()
+    assert (Databas.dictfrombd(request_for_db))
