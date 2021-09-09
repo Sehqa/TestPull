@@ -12,23 +12,15 @@ class Db(object):
         dictlist = []
         conn = sqlite3.connect(self.db_name)
         cur = conn.cursor()
-        cur.execute(script_for_bd.script1)
-
-      #  cur.execute("""CREATE TABLE IF NOT EXISTS users(
-     #          userid INT PRIMARY KEY,
-    #           fname TEXT,
-   #            lname TEXT,
-  #             gender TEXT);
- #           """)
+        cur.execute(script_for_bd.create_table_users)
         conn.commit()
-
         cur.execute(zapr)
         colnames = cur.description
         for i in range(0, len(colnames)):
             keylist.append(colnames[i][0])
 
         for i in range(0, len(keylist)):
-            for row in cur.execute('SELECT * FROM users;'):
+            for row in cur.execute(script_for_bd.select_from_users):
                 resultlist.append(row[i])
             dict1[keylist[i]] = resultlist
             dictlist.append(dict1)
