@@ -1,4 +1,5 @@
 import sqlite3
+import dbscripts
 
 class Db(object):
     db_name=''
@@ -10,12 +11,14 @@ class Db(object):
         dictlist = []
         conn = sqlite3.connect(self.db_name)
         cur = conn.cursor()
-        cur.execute("""CREATE TABLE IF NOT EXISTS users(
-               userid INT PRIMARY KEY,
-               fname TEXT,
-               lname TEXT,
-               gender TEXT);
-            """)
+        cur.execute(dbscripts.script_for_bd.script1)
+
+      #  cur.execute("""CREATE TABLE IF NOT EXISTS users(
+     #          userid INT PRIMARY KEY,
+    #           fname TEXT,
+   #            lname TEXT,
+  #             gender TEXT);
+ #           """)
         conn.commit()
 
         cur.execute(zapr)
