@@ -3,8 +3,8 @@ from framework.from_date import For_date
 from smart_assertions import soft_assert, verify_expectations
 
 
-def teardown():
-    verify_expectations()
+#def teardown():
+#    verify_expectations()
 
 
 @pytest.mark.parametrize('date_1', ['2002,08,5'])
@@ -35,8 +35,9 @@ def test2_indiff(dat1):
 
 @pytest.mark.parametrize('date_1', ['2029,05,22'])
 @pytest.mark.parametrize('date_2', ['2029,05,22'])
+
 def test_comparsdate(date_1, date_2):
-    soft_assert(For_date._comparsdate(date_1, date_2))
+    assert(For_date._comparsdate(date_1, date_2))
 
 
 # negative

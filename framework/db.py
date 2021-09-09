@@ -2,7 +2,7 @@ import sqlite3
 
 class Db(object):
 
-    def _dictfrombd(zapr):
+    def dictfrombd(self,zapr):
         dict1 = {}
         keylist = []
         resultlist = []
@@ -16,10 +16,7 @@ class Db(object):
                gender TEXT);
             """)
         conn.commit()
-        # cur.execute("""INSERT INTO users(userid, fname, lname, gender)
-        # VALUES('00021', 'Alex4', 'Smith4', 'male4');""")
-        # conn.commit()
-        # cur.execute("SELECT * FROM users;")
+
         cur.execute(zapr)
         colnames = cur.description
         for i in range(0, len(colnames)):

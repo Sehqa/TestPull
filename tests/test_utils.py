@@ -4,7 +4,6 @@ from framework.listmet import ListMet
 from framework.db import Db
 import pytest
 
-
 def teardown():
     verify_expectations()
 
@@ -31,12 +30,13 @@ def test_logger(filename, url, level):
     soft_assert(Utils._logger(filename, url, level))
 
 
-@pytest.mark.parametrize('zapr', ["SELECT * FROM users;"])
-def test_sqldict(zapr):
-    soft_assert(Db._dictfrombd(zapr))
+@pytest.mark.parametrize('request', ["SELECT * FROM users;"])
+def test_sqldict(request):
+    Databas=Db()
+    assert (Databas.dictfrombd(request))
 
 
-@pytest.mark.parametrize('zapr', ['ssssss'])
+@pytest.mark.parametrize('request', ['ssssss'])
 # negative
-def test2_sqldict(zapr):
-    soft_assert(Db._dictfrombd(zapr))
+def test2_sqldict(request):
+    soft_assert(Db._dictfrombd(request))

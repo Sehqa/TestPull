@@ -24,9 +24,7 @@ class For_date(object):
     def _comparsdate(date1, date2):
         date1 = timestring.Date(date1).date
         date2 = timestring.Date(date2).date
-        if date1 > date2:
-            return (str(date1) + '>' + str(date2))
-        elif date1 < date2:
-            return (str(date2) + '>' + str(date1))
-        elif date1 == date2:
-            return (str(date1) + '=' + str(date2))
+        if date1 == date2:
+            return True
+        else:
+            return False
