@@ -31,8 +31,10 @@ def test_logger(filename, url, level):
 
 
 @pytest.mark.parametrize('request_for_db', ["SELECT * FROM users;"])
-def test_sqldict(request_for_db):
+@pytest.mark.parametrize('db_name', ["database1.db"])
+def test_sqldict(request_for_db,db_name):
     Databas=Db()
+    Databas.db_name=db_name
     assert (Databas.dictfrombd(request_for_db))
 
 

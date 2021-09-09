@@ -1,13 +1,14 @@
 import sqlite3
 
 class Db(object):
+    db_name=''
 
     def dictfrombd(self,zapr):
         dict1 = {}
         keylist = []
         resultlist = []
         dictlist = []
-        conn = sqlite3.connect('mydb.db')
+        conn = sqlite3.connect(self.db_name)
         cur = conn.cursor()
         cur.execute("""CREATE TABLE IF NOT EXISTS users(
                userid INT PRIMARY KEY,
