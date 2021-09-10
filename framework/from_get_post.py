@@ -1,15 +1,15 @@
 import requests
 
 
-class Get_Post(object):
+class GetPost(object):
     @staticmethod
-    def _gethttp(urls, paramss, headerss):
+    def get_http(urls, paramss, headerss):
         req = requests.get(url=urls, params=paramss, headers=headerss)
         return req
 
         # метод для post
 
     @staticmethod
-    def _posthttp(urls, paramss, headerss, bodys):
+    def post_http(urls, paramss, headerss, bodys):
         req = requests.post(url=urls, params=paramss, headers=headerss, data=bodys)
         return req

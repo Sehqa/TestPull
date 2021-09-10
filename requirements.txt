@@ -1,0 +1,7 @@
+requests
+sqlite3
+smart_assertions: soft_assert, verify_expectations
+datetime
+timestring
+requests_mock
+pytest

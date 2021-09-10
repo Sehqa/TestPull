@@ -4,28 +4,29 @@ import requests
 
 class Utils(object):
 
-    #декоратор
-
-    def once(func):
+    @staticmethod
+    def oncelog(func):
         def wrapper(*args):
-            with open(args[0], 'w') as ang:
-                ang.write(str(func(*args)))
-            result = func(*args)
+            print(*args)
+            request_on_url = requests.get(args[1])
+            if args[2] == 1:
+                with open(args[0], 'w') as ang:
+                    ang.write(str(args[1] + request_on_url.text))
+                result = func(*args)
+            elif args[2] == 2:
+                with open(args[0], 'w') as ang:
+                    ang.write(str(args[1] + '  ' + str(request_on_url.status_code)))
+                result = func(*args)
+            elif args[2] == 3:
+                with open(args[0], 'w') as ang:
+                    currenttime = datetime.datetime.now().time()
+                    ang.write(str(args[1] + '  ' + str(request_on_url.status_code) + ' ' + str(
+                        currenttime) + request_on_url.text))
+                result = func(*args)
             return result
-
         return wrapper
 
-    #логировщик
-    @once
-    def _logger(filename, url, level):
-        rss = requests.get(url)
-        if level == 1:
-            return (url, rss.text)
-        elif level == 2:
-            return (url, rss.status_code)
-        elif level == 3:
-            currenttime = datetime.datetime.now().time()
-            return (url, rss.status_code, currenttime, rss.text)
+
 
     #для проверки ожидания
     def testfunc(dd):
@@ -48,3 +49,5 @@ class Utils(object):
                     return print('Функция ' + 'вызывалась в течении ' + str(shet) + ' секунд')
                 else:
                     datetime.time.sleep(5)
+
+

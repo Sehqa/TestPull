@@ -2,6 +2,8 @@ from framework.utils import Utils
 from smart_assertions import soft_assert, verify_expectations
 from framework.listmet import ListMet
 from framework.db import Db
+import requests
+from framework.utils import Utils
 import pytest
 
 def teardown():
@@ -9,10 +11,11 @@ def teardown():
 
 
 @pytest.mark.parametrize("list1", [(1, 2, 3)])
-@pytest.mark.parametrize("list2", [(0, 2, 4)])
+@pytest.mark.parametrize("list2", [(1, 2, 3)])
 @pytest.mark.parametrize("typeinobj", ['str'])
 def test_mas(list1, list2, typeinobj):
-    soft_assert(ListMet._compars_mass(list1, list2, typeinobj))
+    listcomparsobj = ListMet()
+    soft_assert(listcomparsobj.compars_mass(list1, list2, typeinobj))
 
 
 @pytest.mark.parametrize("list1", [('bool')])
@@ -23,11 +26,7 @@ def test2_mas(list1, list2, typeinobj):
     soft_assert(ListMet._compars_mass(list1, list2, typeinobj))
 
 
-@pytest.mark.parametrize("filename", [('log.txt')])
-@pytest.mark.parametrize("url", [('https://stepik.org')])
-@pytest.mark.parametrize("level", [(2)])
-def test_logger(filename, url, level):
-    soft_assert(Utils._logger(filename, url, level))
+
 
 
 @pytest.mark.parametrize('request_for_db', ["SELECT * FROM users;"])
@@ -43,3 +42,5 @@ def test_sqldict(request_for_db,db_name):
 def test2_sqldict(request_for_db):
     Databas = Db()
     assert (Databas.dictfrombd(request_for_db))
+
+

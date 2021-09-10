@@ -4,5 +4,6 @@ from framework.listmet import ListMet
 from framework.db import Db
 import pytest
 
-
-
+@pytest.fixture(scope='module')
+def teardowns():
+    verify_expectations()
