@@ -3,7 +3,7 @@ from framework.HttpLogger import HttpLogger
 
 class GetPost(object):
     @staticmethod
-    @HttpLogger.info(level=3, message=None, log_print=True)
+    @HttpLogger.info(level=3, message='LogMessage', log_print=True)
     def get_http(urls, paramss, headerss):
         req = requests.get(url=urls, params=paramss, headers=headerss)
         return req

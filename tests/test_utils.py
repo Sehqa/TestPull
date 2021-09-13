@@ -23,7 +23,7 @@ def test_mas(list1, list2, typeinobj):
 @pytest.mark.parametrize("typeinobj", ['ssaasdrw,fsdfsd,fdsfsd,111111111'])
 # negative
 def test2_mas(list1, list2, typeinobj):
-    soft_assert(ListMet._compars_mass(list1, list2, typeinobj))
+    soft_assert(ListMet.compars_mass(list1, list2, typeinobj))
 
 
 
