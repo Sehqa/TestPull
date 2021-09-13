@@ -3,14 +3,13 @@ from framework.db.scripts_for_db import ScriptForBd
 
 
 class ForDb(object):
-    db_name=''
-    conn=''
-
+    db_name = ''
+    conn = ''
 
     def connect_for_db(self):
         self.conn = sqlite3.connect(self.db_name)
 
-    def dict_from_db(self,request_for_db):
+    def dict_from_db(self, request_for_db):
         dict1 = {}
         keylist = []
         resultlist = []
@@ -27,5 +26,5 @@ class ForDb(object):
             dictlist.append(dict1)
             dict1 = {}
             resultlist = []
-        if dictlist!=None:
+        if dictlist != None:
             return (dictlist)

@@ -3,24 +3,23 @@
 
 
 class ListMet(object):
-
-    def compars_mass(self, first_list, second_list, type_value=False):
-        resultstr = ''
+    @staticmethod
+    def compars_mass(first_list, second_list, type_value=False):
+        result_str = ''
         if len(first_list) != len(second_list):
             return False
         if type_value is False:
             for i in range(0, len(first_list)):
                 if first_list[i] != second_list[i]:
-                    resultstr = resultstr + 'Элементы ' + str(first_list[i]) + ' ' + str(second_list[i]) + ' ' + str(
+                    result_str = result_str + 'Элементы ' + str(first_list[i]) + ' ' + str(second_list[i]) + ' ' + str(
                         i) + ' по индексу' + '\n'
         else:
             for i in range(0, len(first_list)):
-                if eval(type_value + '({})'.format(first_list[i])) != eval(type_value +
-                                                                           '({})'.format(second_list[i])):
-                    resultstr = resultstr + 'Элементы ' + str(first_list[i]) + ' ' + str(
+                if eval(type_value + '({})'.format(first_list[i])) != eval(type_value +'({})'.format(second_list[i])):
+                    result_str = result_str + 'Элементы ' + str(first_list[i]) + ' ' + str(
                         second_list[i]) + ' ' + str(i) + ' по индексу ' + '\n'
-        if (len(resultstr) > 0):
-            print(resultstr)
+        if (len(result_str) > 0):
+            print(result_str)
             return False
         else:
             return True

@@ -11,10 +11,10 @@ class GetPost(object):
         return req
 
     @staticmethod
-    def mock_get_http(url,headers,params):
+    def mock_get_http(url, headers, params):
         with requests_mock.Mocker() as moc:
             moc.get(url=url, status_code=200)
-            req = GetPost.get_http(url,params, headers)
+            req = GetPost.get_http(url, params, headers)
         return req.status_code
 
     @staticmethod
@@ -24,8 +24,8 @@ class GetPost(object):
         return req
 
     @staticmethod
-    def mock_post_http(url,headers,params,bodys):
+    def mock_post_http(url, headers, params, bodys):
         with requests_mock.Mocker() as moc:
             moc.post(url=url, status_code=200)
-            req = GetPost.post_http(url,headers, params, bodys)
+            req = GetPost.post_http(url, headers, params, bodys)
         return req.status_code

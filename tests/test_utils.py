@@ -24,21 +24,21 @@ def test2_mas(list1, list2, type_in_obj):
 
 @pytest.mark.parametrize('request_for_db', ["SELECT * FROM users;"])
 @pytest.mark.parametrize('db_name', ["database1.db"])
-@pytest.mark.parametrize('expected_dict', [[{'userid': [22]}, {'fname': ['Alex4']}, {'lname': ['Smith4']}, {'gender': ['male4']}]])
-def test_sqldict(request_for_db,db_name,expected_dict):
-    Databas=ForDb()
-    Databas.db_name=db_name
-    Databas.connect_for_db()
-    CustomAssert.my_assert(Databas.dict_from_db(request_for_db)==expected_dict)
+@pytest.mark.parametrize('expected_dict',
+                         [[{'userid': [22]}, {'fname': ['Alex4']}, {'lname': ['Smith4']}, {'gender': ['male4']}]])
+def test_sqldict(request_for_db, db_name, expected_dict):
+    obj_for_test = ForDb()
+    obj_for_test.db_name = db_name
+    obj_for_test.connect_for_db()
+    CustomAssert.my_assert(obj_for_test.dict_from_db(request_for_db) == expected_dict)
 
 
 @pytest.mark.parametrize('request_for_db', ["SELECT * FROM users;"])
 @pytest.mark.parametrize('db_name', ["database1.db"])
-@pytest.mark.parametrize('expected_dict', [[{'userid': [22]}, {'fname': ['ATlex4']}, {'ss': ['Sss']}, {'gender': ['male4']}]])
-def test2_sqldict(request_for_db,db_name,expected_dict):
-    Databas = ForDb()
-    Databas.db_name=db_name
-    Databas.connect_for_db()
-    CustomAssert.my_assert((Databas.dict_from_db(request_for_db)==expected_dict))
-
-
+@pytest.mark.parametrize('expected_dict',
+                         [[{'userid': [22]}, {'fname': ['ATlex4']}, {'ss': ['Sss']}, {'gender': ['male4']}]])
+def test2_sqldict(request_for_db, db_name, expected_dict):
+    obj_for_test = ForDb()
+    obj_for_test.db_name = db_name
+    obj_for_test.connect_for_db()
+    CustomAssert.my_assert((obj_for_test.dict_from_db(request_for_db) == expected_dict))
