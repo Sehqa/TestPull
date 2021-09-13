@@ -1,4 +1,3 @@
-from smart_assertions import soft_assert, verify_expectations
 from framework.lists.for_list import ListMet
 from framework.db.db_utils import ForDb
 from framework.utils.custom_assert import CustomAssert
@@ -8,19 +7,19 @@ import pytest
 
 @pytest.mark.parametrize("list1", [(1, 2, 3)])
 @pytest.mark.parametrize("list2", [(1, 2, 3)])
-@pytest.mark.parametrize("typeinobj", ['str'])
-def test_mas(list1, list2, typeinobj):
-    listcomparsobj = ListMet()
-    CustomAssert.my_assert(listcomparsobj.compars_mass(list1, list2, typeinobj))
+@pytest.mark.parametrize("type_in_obj", ['str'])
+def test_mas(list1, list2, type_in_obj):
+    list_compars_obj = ListMet()
+    CustomAssert.my_assert(list_compars_obj.compars_mass(list1, list2, type_in_obj))
 
 
 @pytest.mark.parametrize("list1", [('345')])
 @pytest.mark.parametrize("list2", [('ddddd')])
-@pytest.mark.parametrize("typeinobj", ['ssaasdrw,fsdfsd,fdsfsd,111111111'])
+@pytest.mark.parametrize("type_in_obj", ['ssaasdrw,fsdfsd,fdsfsd,111111111'])
 # negative
-def test2_mas(list1, list2, typeinobj):
-    listcomparsobj = ListMet()
-    CustomAssert.my_assert(listcomparsobj.compars_mass(list1, list2, typeinobj))
+def test2_mas(list1, list2, type_in_obj):
+    list_compars_obj = ListMet()
+    CustomAssert.my_assert(list_compars_obj.compars_mass(list1, list2, type_in_obj))
 
 
 @pytest.mark.parametrize('request_for_db', ["SELECT * FROM users;"])

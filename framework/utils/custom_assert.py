@@ -1,10 +1,10 @@
 import types
 import inspect
+
 errlist = []
 
+
 class CustomAssert(object):
-
-
     @staticmethod
     def my_assert(assert_condition, message=None):
         global errlist
@@ -17,7 +17,7 @@ class CustomAssert(object):
                 else:
                     (file_path, line, function_name) = inspect.stack()[2][1:4]
                     errlist.append(
-                    'Exception: {}\nFail in "{}:{}" {}()\n'.format(message, file_path, line, function_name))
+                        'Exception: {}\nFail in "{}:{}" {}()\n'.format(message, file_path, line, function_name))
         else:
             try:
                 assert assert_condition
@@ -27,12 +27,11 @@ class CustomAssert(object):
                 else:
                     (file_path, line, function_name) = inspect.stack()[2][1:4]
                     errlist.append(
-                    'Exception: {}\nFail in "{}:{}" {}()\n'.format(message, file_path, line, function_name))
+                        'Exception: {}\nFail in "{}:{}" {}()\n'.format(message, file_path, line, function_name))
 
     @staticmethod
     def show_error():
         global errlist
-        print(errlist)
-
-
-
+        if len(errlist) > 0:
+            print('\n')
+            print(errlist)
