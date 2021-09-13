@@ -1,21 +1,14 @@
 import datetime
 import functools
-import os
 import time
 
 
 class HttpLogger(object):
-    __instance = None
+
 
     @staticmethod
-    def inst():
-        if HttpLogger.__instance is None:
-            HttpLogger.__instance = HttpLogger()
-        return HttpLogger.__instance
-
-    @staticmethod
-    def info(level=1, message=None, log_print=False):
-        def actual_decorator(func):
+    def logger(level=1, message=None):
+        def decorator(func):
             @functools.wraps(func)
             def wrapper(*args, **kwargs):
                 result = func(*args, **kwargs)
@@ -28,12 +21,10 @@ class HttpLogger(object):
                 if level == 3:
                     t = time.time()
                     with open('log.txt', 'w') as ang:
-                        ang.write(str(result.url+' Status code: '+str(result.status_code)+' '+str(result.text)+' '+str(datetime.datetime.now())+'  '+str(message)))
-                if message is not None:
-                    if log_print:
-                        print('log')
+                        ang.write(str(result.url+' Status code: '+str(result.status_code)+' '+str(result.text)+' '\
+                                      +'Time '+str(datetime.datetime.now())+'  '+str(message)))
                 return func(*args, **kwargs)
 
             return wrapper
 
-        return actual_decorator
+        return decorator

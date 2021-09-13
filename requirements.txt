@@ -5,3 +5,5 @@ datetime
 timestring
 requests_mock
 pytest
+functools
+copy

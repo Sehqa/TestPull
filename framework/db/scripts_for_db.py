@@ -1,4 +1,4 @@
-class script_for_bd:
+class ScriptForBd:
     create_table_users="""CREATE TABLE IF NOT EXISTS users(
                userid INT PRIMARY KEY,
                fname TEXT,

@@ -1,7 +1,4 @@
-from framework.utils import Utils
-from smart_assertions import soft_assert, verify_expectations
-from framework.listmet import ListMet
-from framework.db import Db
+from smart_assertions import verify_expectations
 import pytest
 
 @pytest.fixture(scope='module')
