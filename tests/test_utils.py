@@ -29,6 +29,7 @@ def test2_mas(list1, list2, typeinobj):
 def test_sqldict(request_for_db,db_name,expected_dict):
     Databas=ForDb()
     Databas.db_name=db_name
+    Databas.connect_for_db()
     CustomAssert.my_assert(Databas.dict_from_db(request_for_db)==expected_dict)
 
 
@@ -38,6 +39,7 @@ def test_sqldict(request_for_db,db_name,expected_dict):
 def test2_sqldict(request_for_db,db_name,expected_dict):
     Databas = ForDb()
     Databas.db_name=db_name
+    Databas.connect_for_db()
     CustomAssert.my_assert((Databas.dict_from_db(request_for_db)==expected_dict))
 
 
