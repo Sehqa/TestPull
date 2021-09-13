@@ -1,16 +1,8 @@
 import pytest
 from framework.dates.for_date import ForDate
-from smart_assertions import soft_assert, verify_expectations
+from smart_assertions import soft_assert
 
 
-def teardown():
-    verify_expectations()
-
-def bad_assert(func,mesage):
-    if func==True:
-        print('Goooooooooooood-------------------------------------------')
-    else:
-        print(mesage)
 
 
 @pytest.mark.parametrize('date_start', ['2002,08,5'])
@@ -18,8 +10,8 @@ def bad_assert(func,mesage):
 @pytest.mark.parametrize('date_in_interval', ['2055,05,21'])
 def test_interval(date_start, date_end, date_in_interval):
     objdate = ForDate()
-    bad_assert(objdate.in_interval(date_start, date_end, date_in_interval)==True,'Baaaad')
-    #assert (objdate.ininterval(date_start, date_end, date_in_interval))
+    soft_assert(objdate.in_interval(date_start, date_end, date_in_interval)==True,'Baaaad')
+
 
 
 
@@ -29,7 +21,7 @@ def test_interval(date_start, date_end, date_in_interval):
 @pytest.mark.parametrize('date_in_interval', ['2005,05,21'])
 def test2_interval(date_start, date_end, date_in_interval):
     objdate = ForDate()
-    badassert(objdate.in_interval(date_start, date_end, date_in_interval))
+    soft_assert(objdate.in_interval(date_start, date_end, date_in_interval))
   #  soft_assert(objdate.ininterval(date_start, date_end, date_in_interval))
 
 

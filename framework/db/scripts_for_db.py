@@ -6,3 +6,6 @@ class ScriptForBd:
                gender TEXT);
             """
     select_from_users="""SELECT * FROM users;"""
+
+    add_user="""INSERT INTO users(userid, fname, lname, gender) 
+   VALUES('00022', 'Alex4', 'Smith4', 'male4');"""

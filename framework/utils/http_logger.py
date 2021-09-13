@@ -4,8 +4,6 @@ import time
 
 
 class HttpLogger(object):
-
-
     @staticmethod
     def logger(level=1, message=None):
         def decorator(func):
