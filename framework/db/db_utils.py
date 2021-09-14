@@ -1,6 +1,6 @@
 import sqlite3
 from framework.db.scripts_for_db import ScriptForBd
-
+import os
 
 class ForDb(object):
     db_name = ''
@@ -9,22 +9,25 @@ class ForDb(object):
     def connect_for_db(self):
         self.conn = sqlite3.connect(self.db_name)
 
-    def dict_from_db(self, request_for_db):
-        dict1 = {}
+    def return_dictionary_list(self, request_for_db):
+        dictionaire = {}
         keylist = []
-        resultlist = []
-        dictlist = []
+        result_list = []
+        dictionaire_list = []
         cur = self.conn.cursor()
+        cur.execute(ScriptForBd.create_table_users)
+        cur.execute(ScriptForBd.add_user)
         cur.execute(request_for_db)
         colnames = cur.description
         for i in range(0, len(colnames)):
             keylist.append(colnames[i][0])
         for i in range(0, len(keylist)):
             for row in cur.execute(ScriptForBd.select_from_users):
-                resultlist.append(row[i])
-            dict1[keylist[i]] = resultlist
-            dictlist.append(dict1)
-            dict1 = {}
-            resultlist = []
-        if dictlist != None:
-            return (dictlist)
+                result_list.append(row[i])
+            dictionaire[keylist[i]] = result_list
+            dictionaire_list.append(dictionaire)
+            dictionaire = {}
+            result_list = []
+        os.remove(self.db_name)
+        if dictionaire_list != None:
+            return (dictionaire_list)

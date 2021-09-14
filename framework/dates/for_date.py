@@ -4,7 +4,7 @@ import timestring
 
 class ForDate(object):
 
-    def in_interval(self,date_start, date_end, date_in_interval):
+    def check_interval(self,date_start, date_end, date_in_interval):
         date_start = timestring.Date(date_start).date
         date_end = timestring.Date(date_end).date
         date_in_interval = timestring.Date(date_in_interval).date

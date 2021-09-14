@@ -5,7 +5,7 @@ from framework.utils.http_logger import HttpLogger
 
 class GetPost(object):
     @staticmethod
-    @HttpLogger.logger(level=3, message='LogMessage')
+    @HttpLogger.logger(level=3, message='LogMessage',filename='log_one.txt')
     def get_http(urls, paramss, headerss):
         req = requests.get(url=urls, params=paramss, headers=headerss)
         return req
@@ -18,7 +18,7 @@ class GetPost(object):
         return req.status_code
 
     @staticmethod
-    @HttpLogger.logger(level=2, message=None)
+    @HttpLogger.logger(level=2, message=None,filename='log_two.txt')
     def post_http(urls, paramss, headerss, bodys):
         req = requests.post(url=urls, params=paramss, headers=headerss, data=bodys)
         return req

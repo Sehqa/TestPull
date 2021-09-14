@@ -4,7 +4,7 @@
 
 class ListMet(object):
     @staticmethod
-    def compars_mass(first_list, second_list, type_value=False):
+    def compars_mass(first_list=[], second_list=[], type_value=False):
         result_str = ''
         if len(first_list) != len(second_list):
             return False
