@@ -19,17 +19,31 @@ def test2_interval(date_start, date_end, date_in_interval):
     CustomAssert.my_assert(obj_date.check_interval(date_start, date_end, date_in_interval))
 
 
-@pytest.mark.parametrize('date', [2020,5,21,12,0])
-def test_in_diff(date):
-    obj_date = ForDate()
-    CustomAssert.my_assert(obj_date.date_difference(date))
+@pytest.mark.parametrize('year', [2020])
+@pytest.mark.parametrize('month', [5])
+@pytest.mark.parametrize('day', [21])
+@pytest.mark.parametrize('hour', [12])
+@pytest.mark.parametrize('minute', [12])
+@pytest.mark.parametrize('seconds', [14])
+@pytest.mark.parametrize('expected', [3])
 
 
-# negative
-@pytest.mark.parametrize('date', ['20uhjhh2'])
-def test2_in_diff(date):
+def test_in_diff(year,month,day,hour,minute,seconds,expected):
     obj_date = ForDate()
-    CustomAssert.my_assert(obj_date.date_difference(date))
+    assert (obj_date.date_difference(year,month,day,hour,minute,seconds)==expected)
+
+
+@pytest.mark.parametrize('year', [2020])
+@pytest.mark.parametrize('month', [5])
+@pytest.mark.parametrize('day', [21])
+@pytest.mark.parametrize('hour', [12])
+@pytest.mark.parametrize('minute', [12])
+@pytest.mark.parametrize('seconds', [14])
+@pytest.mark.parametrize('expected', [5])
+
+def test2_in_diff(year,month,day,hour,minute,seconds,expected):
+    obj_date = ForDate()
+    CustomAssert.my_assert((obj_date.date_difference(year,month,day,hour,minute,seconds)==expected))
 
 
 @pytest.mark.parametrize('one_date', ['2029,05,22'])

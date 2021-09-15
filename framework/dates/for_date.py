@@ -1,7 +1,6 @@
 import datetime
 import timestring
 from datetime import datetime, timedelta
-from dateutil.relativedelta import relativedelta
 from dateutil import tz
 
 class ForDate(object):
@@ -13,12 +12,9 @@ class ForDate(object):
         return (date_start < date_in_interval < date_end)
 
     # Метод для вычисления cмещения
-    def date_difference(self,date):
-        a = timestring.Date(date).date
+    def date_difference(self,year,month,day,hour,minute,seconds):
         BLR = tz.gettz('Europe/Minsk')
-        dt1 = datetime(2020, 5, 21, 12, 0, tzinfo=BLR)
-        print(dt1.utcoffset() / timedelta(hours=1))
-        print(dt1.utcoffset() / timedelta(hours=1))
+        dt1 = datetime(year,month,day,hour, minute,seconds, 0, tzinfo=BLR)
         return (dt1.utcoffset() / timedelta(hours=1))
 
     # метод для сравнения двух дат
