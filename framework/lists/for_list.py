@@ -19,7 +19,6 @@ class ListMet(object):
                     result_str = result_str + 'Элементы ' + str(first_list[i]) + ' ' + str(
                         second_list[i]) + ' ' + str(i) + ' по индексу ' + '\n'
         if (len(result_str) > 0):
-            print(result_str)
             return False
         else:
             return True

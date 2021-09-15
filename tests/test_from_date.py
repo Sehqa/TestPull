@@ -34,7 +34,7 @@ def test2_in_diff(date):
 
 @pytest.mark.parametrize('one_date', ['2029,05,22'])
 @pytest.mark.parametrize('two_date', ['2029,05,22'])
-def test_compar_sdate(one_date, two_date):
+def test_compars_sdate(one_date, two_date):
     obj_date = ForDate()
     assert (obj_date.compars_date(one_date, two_date))
 

@@ -5,9 +5,19 @@ import os
 class ForDb(object):
     db_name = ''
     conn = ''
+    def __init__(self,db_name):
+        self.db_name=db_name
 
     def connect_for_db(self):
         self.conn = sqlite3.connect(self.db_name)
+
+    def add_user_in_table(self):
+        cur = self.conn.cursor()
+        cur.execute(ScriptForBd.add_user)
+
+    def create_table(self):
+        cur = self.conn.cursor()
+        cur.execute(ScriptForBd.create_table_users)
 
     def return_dictionary_list(self, request_for_db):
         dictionaire = {}
@@ -15,8 +25,6 @@ class ForDb(object):
         result_list = []
         dictionaire_list = []
         cur = self.conn.cursor()
-        cur.execute(ScriptForBd.create_table_users)
-        cur.execute(ScriptForBd.add_user)
         cur.execute(request_for_db)
         colnames = cur.description
         for i in range(0, len(colnames)):
