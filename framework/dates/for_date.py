@@ -1,6 +1,7 @@
 import datetime
 import timestring
 from datetime import datetime, timedelta
+from dateutil.relativedelta import relativedelta
 from dateutil import tz
 
 class ForDate(object):
@@ -17,7 +18,9 @@ class ForDate(object):
         BLR = tz.gettz('Europe/Minsk')
         dt1 = datetime(2020, 5, 21, 12, 0, tzinfo=BLR)
         print(dt1.utcoffset() / timedelta(hours=1))
+        print(dt1.utcoffset() / timedelta(hours=1))
         return (dt1.utcoffset() / timedelta(hours=1))
+
     # метод для сравнения двух дат
 
     def compars_date(self,one_date, two_date):

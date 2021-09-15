@@ -19,7 +19,7 @@ def test2_interval(date_start, date_end, date_in_interval):
     CustomAssert.my_assert(obj_date.check_interval(date_start, date_end, date_in_interval))
 
 
-@pytest.mark.parametrize('date', ['2029,07,22'])
+@pytest.mark.parametrize('date', [2020,5,21,12,0])
 def test_in_diff(date):
     obj_date = ForDate()
     CustomAssert.my_assert(obj_date.date_difference(date))
