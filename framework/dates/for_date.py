@@ -1,6 +1,7 @@
 import datetime
 import timestring
-
+from datetime import datetime, timedelta
+from dateutil import tz
 
 class ForDate(object):
 
@@ -10,15 +11,13 @@ class ForDate(object):
         date_in_interval = timestring.Date(date_in_interval).date
         return (date_start < date_in_interval < date_end)
 
-    # Метод для вычисления разницы между текущей и заданной датой
+    # Метод для вычисления cмещения
     def date_difference(self,date):
         a = timestring.Date(date).date
-        nowdate = datetime.datetime.now()
-        if a < nowdate:
-            return (nowdate - a)
-        elif a > nowdate:
-            return (a - nowdate)
-
+        BLR = tz.gettz('Europe/Minsk')
+        dt1 = datetime(2020, 5, 21, 12, 0, tzinfo=BLR)
+        print(dt1.utcoffset() / timedelta(hours=1))
+        return (dt1.utcoffset() / timedelta(hours=1))
     # метод для сравнения двух дат
 
     def compars_date(self,one_date, two_date):
