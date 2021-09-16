@@ -26,11 +26,9 @@ def test2_interval(date_start, date_end, date_in_interval):
 @pytest.mark.parametrize('minute', [12])
 @pytest.mark.parametrize('seconds', [14])
 @pytest.mark.parametrize('expected', [3])
-
-
-def test_in_diff(year,month,day,hour,minute,seconds,expected):
+def test_in_diff(year, month, day, hour, minute, seconds, expected):
     obj_date = ForDate()
-    assert (obj_date.date_difference(year,month,day,hour,minute,seconds)==expected)
+    assert (obj_date.date_difference(year, month, day, hour, minute, seconds) == expected)
 
 
 @pytest.mark.parametrize('year', [2020])
@@ -40,10 +38,9 @@ def test_in_diff(year,month,day,hour,minute,seconds,expected):
 @pytest.mark.parametrize('minute', [12])
 @pytest.mark.parametrize('seconds', [14])
 @pytest.mark.parametrize('expected', [5])
-
-def test2_in_diff(year,month,day,hour,minute,seconds,expected):
+def test2_in_diff(year, month, day, hour, minute, seconds, expected):
     obj_date = ForDate()
-    CustomAssert.my_assert((obj_date.date_difference(year,month,day,hour,minute,seconds)==expected))
+    CustomAssert.my_assert((obj_date.date_difference(year, month, day, hour, minute, seconds) == expected))
 
 
 @pytest.mark.parametrize('one_date', ['2029,05,22'])
@@ -59,10 +56,13 @@ def test_compars_sdate(one_date, two_date):
 @pytest.mark.parametrize('year_second_date', [2020])
 @pytest.mark.parametrize('month_second_date', [5])
 @pytest.mark.parametrize('day_second_date', [21])
-
-def test4_compars(year_first_date,month_first_date,day_first_date,year_second_date,month_second_date,day_second_date):
+def test4_compars(year_first_date, month_first_date, day_first_date, year_second_date, month_second_date,
+                  day_second_date):
     obj_date = ForDate()
-    assert (obj_date.compars2_date(year_first_date,month_first_date,day_first_date,year_second_date,month_second_date,day_second_date))
+    assert (
+        obj_date.compars2_date(year_first_date, month_first_date, day_first_date, year_second_date, month_second_date,
+                               day_second_date))
+
 
 # negative
 

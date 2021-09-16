@@ -1,7 +1,8 @@
 import datetime
 import copy
-import time
-result_list=[]
+
+result_list = []
+
 
 class Utils(object):
     @staticmethod
@@ -32,7 +33,3 @@ class Utils(object):
             return True
         else:
             result_list.append(n)
-
-
-
-

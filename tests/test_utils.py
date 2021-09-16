@@ -1,21 +1,18 @@
 from framework.lists.for_list import ListMet
-from framework.utils.custom_assert import CustomAssert
-from  framework.utils.waiting_method import Utils
+from framework.utils.waiting_method import Utils
 from framework.utils.custom_assert import CustomAssert
 import pytest
 
 
-@pytest.mark.parametrize("list1,list2,type_in_obj", [([1, 2, 3],[1, 2, 3],'str')])
+@pytest.mark.parametrize("list1,list2,type_in_obj", [([1, 2, 3], [1, 2, 3], 'str')])
 def test_mas(list1, list2, type_in_obj):
     list_compars_obj = ListMet()
     CustomAssert.my_assert(list_compars_obj.compars_mass(list1, list2, type_in_obj))
 
 
-
 @pytest.mark.parametrize("list1", [([1, 2, 3])])
 @pytest.mark.parametrize("list2", [([1, 2, 4])])
 @pytest.mark.parametrize("type_in_obj", ['int'])
-# negative
 def test2_mas(list1, list2, type_in_obj):
     list_compars_obj = ListMet()
     CustomAssert.my_assert(list_compars_obj.compars_mass(list1, list2, type_in_obj))
@@ -24,26 +21,22 @@ def test2_mas(list1, list2, type_in_obj):
 @pytest.mark.parametrize("timeout", [20])
 @pytest.mark.parametrize("period", [5])
 @pytest.mark.parametrize("arg", [5])
-
-# waiting result
-def test_waiting(timeout,period,arg):
-    CustomAssert.my_assert (Utils.wait_for_result(Utils.add_in_result_list, timeout, period, arg)==True)
+def test_waiting(timeout, period, arg):
+    CustomAssert.my_assert(Utils.wait_for_result(Utils.add_in_result_list, timeout, period, arg) == True)
 
 
 @pytest.mark.parametrize("timeout", [10])
 @pytest.mark.parametrize("period", [5])
 @pytest.mark.parametrize("arg", [5])
-#negative
-def test2_waiting(timeout,period,arg):
+def test2_waiting(timeout, period, arg):
     CustomAssert.my_assert(Utils.wait_for_result(Utils.add_in_result_list, timeout, period, arg) == True)
 
 
 @pytest.mark.parametrize('request_for_db', ["SELECT * FROM users;"])
 @pytest.mark.parametrize('expected_dict',
                          [[{'userid': [22]}, {'fname': ['Alex4']}, {'lname': ['Smith4']}, {'gender': ['male4']}]])
-def test_sqldict(request_for_db, expected_dict,fix_from_db):
+def test_sqldict(request_for_db, expected_dict, fix_from_db):
     assert (fix_from_db.return_dictionary_list(request_for_db) == expected_dict)
-
 
 
 @pytest.mark.parametrize('request_for_db', ["SELECT * FROM users;"])
