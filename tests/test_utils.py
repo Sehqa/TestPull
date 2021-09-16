@@ -1,17 +1,17 @@
 from framework.lists.for_list import ListMet
 from framework.utils.custom_assert import CustomAssert
 from  framework.utils.waiting_method import Utils
+from framework.utils.custom_assert import CustomAssert
 import pytest
 
 
 @pytest.mark.parametrize("list1,list2,type_in_obj", [([1, 2, 3],[1, 2, 3],'str')])
 def test_mas(list1, list2, type_in_obj):
     list_compars_obj = ListMet()
-    CustomAssert.my_assert(1 == 2)
     CustomAssert.my_assert(list_compars_obj.compars_mass(list1, list2, type_in_obj))
 
 
-'''
+
 @pytest.mark.parametrize("list1", [([1, 2, 3])])
 @pytest.mark.parametrize("list2", [([1, 2, 4])])
 @pytest.mark.parametrize("type_in_obj", ['int'])

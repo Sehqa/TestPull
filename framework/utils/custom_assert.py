@@ -13,6 +13,7 @@ class CustomAssert(object):
         except AssertionError as error:
             if(message==None):
                 error_list.append(error)
+                CustomAssert.show_error()
             else:
                 raise Exception(message)
 
