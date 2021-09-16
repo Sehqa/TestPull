@@ -12,6 +12,13 @@ class CustomAssert(object):
             assert assert_condition
         except AssertionError as error:
             if(message==None):
-               raise
+                error_list.append(error)
             else:
                 raise Exception(message)
+
+
+    @staticmethod
+    def show_error():
+        if(len(error_list)>=1):
+            for i in error_list:
+                raise i

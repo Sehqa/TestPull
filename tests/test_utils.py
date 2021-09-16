@@ -4,14 +4,14 @@ from  framework.utils.waiting_method import Utils
 import pytest
 
 
-@pytest.mark.parametrize("list1", [([1, 2, 3])])
-@pytest.mark.parametrize("list2", [([1, 2, 3])])
-@pytest.mark.parametrize("type_in_obj", ['str'])
+@pytest.mark.parametrize("list1,list2,type_in_obj", [([1, 2, 3],[1, 2, 3],'str')])
 def test_mas(list1, list2, type_in_obj):
     list_compars_obj = ListMet()
+    CustomAssert.my_assert(1 == 2)
     CustomAssert.my_assert(list_compars_obj.compars_mass(list1, list2, type_in_obj))
 
 
+'''
 @pytest.mark.parametrize("list1", [([1, 2, 3])])
 @pytest.mark.parametrize("list2", [([1, 2, 4])])
 @pytest.mark.parametrize("type_in_obj", ['int'])
@@ -51,3 +51,4 @@ def test_sqldict(request_for_db, expected_dict,fix_from_db):
                          [[{'userid': [22]}, {'fname': ['ATlex4']}, {'ss': ['Sss']}, {'gender': ['male4']}]])
 def test2_sqldict(request_for_db, fix_from_db, expected_dict):
     CustomAssert.my_assert(fix_from_db.return_dictionary_list(request_for_db) == expected_dict)
+'''
