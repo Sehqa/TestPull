@@ -51,4 +51,3 @@ def test_sqldict(request_for_db, expected_dict,fix_from_db):
                          [[{'userid': [22]}, {'fname': ['ATlex4']}, {'ss': ['Sss']}, {'gender': ['male4']}]])
 def test2_sqldict(request_for_db, fix_from_db, expected_dict):
     CustomAssert.my_assert(fix_from_db.return_dictionary_list(request_for_db) == expected_dict)
-'''

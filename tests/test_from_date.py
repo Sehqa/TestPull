@@ -18,7 +18,7 @@ def test2_interval(date_start, date_end, date_in_interval):
     obj_date = ForDate()
     CustomAssert.my_assert(obj_date.check_interval(date_start, date_end, date_in_interval))
 
-'''
+
 @pytest.mark.parametrize('year', [2020])
 @pytest.mark.parametrize('month', [5])
 @pytest.mark.parametrize('day', [21])
@@ -71,4 +71,3 @@ def test4_compars(year_first_date,month_first_date,day_first_date,year_second_da
 def test2_compars_date(one_date, two_date):
     obj_date = ForDate()
     CustomAssert.my_assert(obj_date.compars_date(one_date, two_date))
-'''

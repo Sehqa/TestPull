@@ -2,11 +2,13 @@ import sqlite3
 from framework.db.scripts_for_db import ScriptForBd
 import os
 
+
 class ForDb(object):
     db_name = ''
     conn = ''
-    def __init__(self,db_name):
-        self.db_name=db_name
+
+    def __init__(self, db_name):
+        self.db_name = db_name
 
     def connect_for_db(self):
         self.conn = sqlite3.connect(self.db_name)

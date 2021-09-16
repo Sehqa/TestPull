@@ -15,7 +15,7 @@ class ListMet(object):
                         i) + ' по индексу' + '\n'
         else:
             for i in range(0, len(first_list)):
-                if eval(type_value + '({})'.format(first_list[i])) != eval(type_value +'({})'.format(second_list[i])):
+                if eval(type_value + '({})'.format(first_list[i])) != eval(type_value + '({})'.format(second_list[i])):
                     result_str = result_str + 'Элементы ' + str(first_list[i]) + ' ' + str(
                         second_list[i]) + ' ' + str(i) + ' по индексу ' + '\n'
         if (len(result_str) > 0):

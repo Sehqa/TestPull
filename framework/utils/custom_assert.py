@@ -1,5 +1,3 @@
-
-import trace
 error_list = []
 
 
