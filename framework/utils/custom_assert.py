@@ -4,11 +4,6 @@ error_list = []
 
 
 class CustomAssert(object):
-    @staticmethod
-    def show_error():
-        global error_list
-        if len(error_list) > 0:
-            trace (error_list)
 
     @staticmethod
     def my_assert(assert_condition, message=None):
@@ -16,4 +11,7 @@ class CustomAssert(object):
         try:
             assert assert_condition
         except AssertionError as error:
-            error_list.append(error)
+            if(message==None):
+               raise
+            else:
+                raise Exception(message)
