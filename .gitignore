@@ -2,4 +2,3 @@ log.txt
 *.db
 .idea
 .pytest_cashe
-database1.db
