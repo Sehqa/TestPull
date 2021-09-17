@@ -11,7 +11,7 @@ def fix_from_db():
     db_obj.add_user_in_table()
     return db_obj
 
-@pytest.fixture(scope='session')
+@pytest.fixture(scope='module')
 def fix_from_delete_db():
     yield
     os.remove(DB_NAME)
