@@ -23,21 +23,20 @@ class DbUtils(object):
 
     def return_dictionary_list(self, request_for_db):
         dictionaire = {}
-        keylist = []
+        key_list = []
         result_list = []
         dictionaire_list = []
         cur = self.conn.cursor()
         cur.execute(request_for_db)
         colnames = cur.description
         for i in range(0, len(colnames)):
-            keylist.append(colnames[i][0])
-        for i in range(0, len(keylist)):
+            key_list.append(colnames[i][0])
+        for i in range(0, len(key_list)):
             for row in cur.execute(ScriptForBd.select_from_users):
                 result_list.append(row[i])
-            dictionaire[keylist[i]] = result_list
+            dictionaire[key_list[i]] = result_list
             dictionaire_list.append(dictionaire)
             dictionaire = {}
             result_list = []
-        os.remove(self.db_name)
         if dictionaire_list is not None:
             return dictionaire_list
