@@ -6,15 +6,15 @@ result_list = []
 
 class Utils(object):
     @staticmethod
-    def wait_for_result(func, timeout, period, arg):
+    def wait_for_result(func, time_out, period, arg):
         result = func(arg)
         if (result != None):
             return True
         start_time = datetime.datetime.now()
         now = datetime.datetime.now()
         call_time = copy.copy((now + datetime.timedelta(seconds=period)))  # запоминаем время следующего вызова
-        timeout = copy.copy((now + datetime.timedelta(seconds=timeout)))  # запоминаем время таймаута
-        while now.time() < timeout.time():
+        time_out = copy.copy((now + datetime.timedelta(seconds=time_out)))  # запоминаем время таймаута
+        while now.time() < time_out.time():
             now = datetime.datetime.now()
             if now.time() == call_time.time():  # если текущее время == времени следующего вызова
                 result = func(arg)
