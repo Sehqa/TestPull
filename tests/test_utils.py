@@ -18,18 +18,18 @@ def test2_mas(list1, list2, type_in_obj):
     CustomAssert.my_assert(list_compars_obj.compars_mass(list1, list2, type_in_obj))
 
 
-@pytest.mark.parametrize("timeout", [20])
+@pytest.mark.parametrize("time_out", [20])
 @pytest.mark.parametrize("period", [5])
 @pytest.mark.parametrize("arg", [5])
-def test_waiting(timeout, period, arg):
-    CustomAssert.my_assert(Utils.wait_for_result(Utils.add_in_result_list, timeout, period, arg) == True)
+def test_waiting(time_out, period, arg):
+    CustomAssert.my_assert(Utils.wait_for_result(Utils.add_in_result_list, time_out, period, arg) == True)
 
 
-@pytest.mark.parametrize("timeout", [5])
+@pytest.mark.parametrize("time_out", [5])
 @pytest.mark.parametrize("period", [5])
 @pytest.mark.parametrize("arg", [5])
-def test2_waiting(timeout, period, arg):
-    CustomAssert.my_assert(Utils.wait_for_result(Utils.add_in_result_list, timeout, period, arg) == True)
+def test2_waiting(time_out, period, arg):
+    CustomAssert.my_assert(Utils.wait_for_result(Utils.add_in_result_list, time_out, period, arg) == True)
 
 
 @pytest.mark.parametrize('request_for_db', ["SELECT * FROM users;"])
