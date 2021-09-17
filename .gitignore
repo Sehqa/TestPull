@@ -1,5 +1,5 @@
 log.txt
-mydb.db
+*.db
 .idea
 .pytest_cashe
 database1.db
