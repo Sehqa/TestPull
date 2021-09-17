@@ -39,5 +39,5 @@ class DbUtils(object):
             dictionaire = {}
             result_list = []
         os.remove(self.db_name)
-        if dictionaire_list != None:
-            return (dictionaire_list)
+        if dictionaire_list is not None:
+            return dictionaire_list

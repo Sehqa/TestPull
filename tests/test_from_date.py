@@ -28,7 +28,7 @@ def test2_interval(date_start, date_end, date_in_interval):
 @pytest.mark.parametrize('expected', [3])
 def test_in_offset(year, month, day, hour, minute, seconds, expected):
     obj_date = DateUtils()
-    CustomAssert.my_assert (obj_date.offset_calculation(year, month, day, hour, minute, seconds) == expected)
+    CustomAssert.my_assert(obj_date.offset_calculation(year, month, day, hour, minute, seconds) == expected)
 
 
 @pytest.mark.parametrize('year', [2020])
@@ -50,7 +50,7 @@ def test2_in_offset(year, month, day, hour, minute, seconds, expected):
 @pytest.mark.parametrize('month_second_date', [5])
 @pytest.mark.parametrize('day_second_date', [21])
 def test_compars(year_first_date, month_first_date, day_first_date, year_second_date, month_second_date,
-                  day_second_date):
+                 day_second_date):
     obj_date = DateUtils()
     CustomAssert.my_assert(obj_date.compars_date(year_first_date, month_first_date, day_first_date,
                                                  year_second_date, month_second_date, day_second_date))

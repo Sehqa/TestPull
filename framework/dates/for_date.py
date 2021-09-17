@@ -14,17 +14,17 @@ class DateUtils(object):
 
     # Метод для вычисления cмещения
     def offset_calculation(self, year, month, day, hour, minute, seconds):
-        BLR = tz.gettz('Europe/Minsk')
-        date = datetime(year, month, day, hour, minute, seconds, 0, tzinfo=BLR)
-        return (date.utcoffset() / timedelta(hours=1))
+        blr_timezone = tz.gettz('Europe/Minsk')
+        date = datetime(year, month, day, hour, minute, seconds, 0, tzinfo=blr_timezone)
+        return date.utcoffset() / timedelta(hours=1)
 
     # метод для сравнения двух дат
 
     def compars_date(self, year_first_date=0000, month_first_date=0, day_first_date=0,
                      year_second_date=0, month_second_date=0, day_second_date=0):
-        BLR = tz.gettz('Europe/Minsk')
-        first_date = datetime(year_first_date, month_first_date, day_first_date, tzinfo=BLR)
-        second_date = datetime(year_second_date, month_second_date, day_second_date, tzinfo=BLR)
+        blr_timezone = tz.gettz('Europe/Minsk')
+        first_date = datetime(year_first_date, month_first_date, day_first_date, tzinfo=blr_timezone)
+        second_date = datetime(year_second_date, month_second_date, day_second_date, tzinfo=blr_timezone)
         if first_date == second_date:
             return True
         else:

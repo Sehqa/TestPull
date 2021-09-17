@@ -36,7 +36,7 @@ def test2_waiting(timeout, period, arg):
 @pytest.mark.parametrize('expected_dict',
                          [[{'userid': [22]}, {'fname': ['Alex4']}, {'lname': ['Smith4']}, {'gender': ['male4']}]])
 def test_sqldict(request_for_db, expected_dict, fix_from_db):
-    CustomAssert.my_assert (fix_from_db.return_dictionary_list(request_for_db) == expected_dict)
+    CustomAssert.my_assert(fix_from_db.return_dictionary_list(request_for_db) == expected_dict)
 
 
 @pytest.mark.parametrize('request_for_db', ["SELECT * FROM users;"])
