@@ -28,8 +28,8 @@ class Utils(object):
 
     @staticmethod
     def add_in_result_list(n=0):
-        global result_list
         if (len(result_list) > 2):
+            result_list.clear()
             return True
         else:
             result_list.append(n)

@@ -3,7 +3,7 @@ from framework.db.scripts_for_db import ScriptForBd
 import os
 
 
-class ForDb(object):
+class DbUtils(object):
     db_name = ''
     conn = ''
 

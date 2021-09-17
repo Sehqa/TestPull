@@ -2,7 +2,7 @@
 или без приведения к типу если параметр tupe_value=False"""
 
 
-class ListMet(object):
+class ListUtils(object):
     @staticmethod
     def compars_mass(first_list=[], second_list=[], type_value=False):
         result_str = ''
@@ -21,5 +21,4 @@ class ListMet(object):
         if (len(result_str) > 0):
             return False
         else:
-            print('+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++')
             return True
