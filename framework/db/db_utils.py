@@ -1,6 +1,5 @@
 import sqlite3
 from framework.db.scripts_for_db import ScriptForBd
-import os
 
 
 class DbUtils(object):
