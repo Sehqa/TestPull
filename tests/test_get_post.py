@@ -1,6 +1,6 @@
 import pytest
-from framework.http.for_get_post import GetPost
-from framework.utils.custom_assert import CustomAssert
+from .framework.http.for_get_post import GetPost
+from .framework.utils.custom_assert import CustomAssert
 
 
 @pytest.mark.parametrize("url", ['http://example.com/get_status'])
