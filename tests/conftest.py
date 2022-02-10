@@ -1,6 +1,6 @@
 import pytest
-from framework.db.db_utils import DbUtils
-from framework.db.db_const import DB_NAME
+from .framework.db.db_utils import DbUtils
+from .framework.db.db_const import DB_NAME
 import os
 
 @pytest.fixture(scope='module')
